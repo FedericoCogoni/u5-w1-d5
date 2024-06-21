@@ -22,6 +22,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     private UUID user_id;
+    private String username;
     private String name;
     private String surname;
     private String email;
@@ -29,4 +30,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Reservation> reservationList;
 
+    public User(String username, String name, String surname, String email) {
+        this.username = username;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
 }

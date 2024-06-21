@@ -33,4 +33,10 @@ public class Reservation {
     private Station station;
 
 
+    public Reservation(LocalDate reservation_date, Station_type stationType, User user, Station station) {
+        this.reservation_date = reservation_date;
+        this.stationType = stationType;
+        this.user = user;
+        this.station = station;
+    }
 }

@@ -14,6 +14,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+
 public class Building {
 
     @Id
@@ -27,4 +28,9 @@ public class Building {
     @OneToMany(mappedBy = "building")
     private List<Station> stationList;
 
+    public Building(String name, String address, String city) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+    }
 }
