@@ -1,21 +1,20 @@
 package federicocogoni.u5_w1_d5.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "users")
 public class User {
 
 
@@ -26,4 +25,8 @@ public class User {
     private String name;
     private String surname;
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Reservation> reservationList;
+
 }

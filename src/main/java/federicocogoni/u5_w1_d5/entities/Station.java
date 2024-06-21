@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,5 +24,10 @@ public class Station {
     private int max_user;
     @Enumerated(EnumType.STRING)
     private Station_type stationType;
+    @ManyToOne
+    @JoinColumn(name = "building")
+    private Building building;
+    @OneToMany(mappedBy = "station")
+    private List<Reservation> reservationStationList;
 
 }
