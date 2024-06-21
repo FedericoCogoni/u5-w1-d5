@@ -36,4 +36,15 @@ public class Station {
         this.stationType = stationType;
         this.building = building;
     }
+
+    @Override
+    public String toString() {
+        return "Station{" +
+                "station_id=" + station_id +
+                ", description='" + description + '\'' +
+                ", max_user=" + max_user +
+                ", stationType=" + stationType +
+                ", building=" + building +
+                '}';
+    }
 }

@@ -4,6 +4,7 @@ import federicocogoni.u5_w1_d5.entities.Building;
 import federicocogoni.u5_w1_d5.entities.Reservation;
 import federicocogoni.u5_w1_d5.entities.Station;
 import federicocogoni.u5_w1_d5.entities.User;
+import federicocogoni.u5_w1_d5.enums.Station_type;
 import federicocogoni.u5_w1_d5.repositories.User_repo;
 import federicocogoni.u5_w1_d5.services.Building_service;
 import federicocogoni.u5_w1_d5.services.Reservation_service;
@@ -13,6 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.util.UUID;
 
 
 @Component
@@ -38,5 +42,15 @@ public class My_runner implements CommandLineRunner {
     userService.save((User) ctx.getBean("user1"));
     reservationService.save((Reservation) ctx.getBean("reservation1"));
 
+    try{
+    reservationService.reservationStation(UUID.fromString("02c9358d-6759-4ef4-abd8-6dfd089834ae"), UUID.fromString("e38df34e-e43c-4e9e-b917-4f443eb9e94f"), LocalDate.of(2024, 06, 22));
+    }catch (Exception e)
+    {System.out.println(e.getMessage());}
+
+    try{
+        stationService.getStationByCityAndStationType("Quarto Soriana ligure", Station_type.PRIVATE);
+    }catch (Exception e)
+    {
+        System.out.println(e.getMessage());}
     }
 }

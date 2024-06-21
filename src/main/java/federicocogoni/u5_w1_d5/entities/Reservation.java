@@ -22,7 +22,8 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     private UUID reservation_id;
-    private LocalDate reservation_date;
+    @Column(name = "reservation_date")
+    private LocalDate reservationDate;
     @Enumerated(EnumType.STRING)
     private Station_type stationType;
     @ManyToOne
@@ -33,10 +34,21 @@ public class Reservation {
     private Station station;
 
 
-    public Reservation(LocalDate reservation_date, Station_type stationType, User user, Station station) {
-        this.reservation_date = reservation_date;
+    public Reservation(LocalDate reservationDate, Station_type stationType, User user, Station station) {
+        this.reservationDate = reservationDate;
         this.stationType = stationType;
         this.user = user;
         this.station = station;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "reservation_id=" + reservation_id +
+                ", reservationDate=" + reservationDate +
+                ", stationType=" + stationType +
+                ", user=" + user +
+                ", station=" + station +
+                '}';
     }
 }

@@ -36,4 +36,15 @@ public class User {
         this.surname = surname;
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

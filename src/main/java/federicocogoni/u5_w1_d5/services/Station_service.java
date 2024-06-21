@@ -47,4 +47,9 @@ public class Station_service {
         stationRepo.delete(found);
         System.out.println("Workstation deleted.");
     }
+
+
+    public List<Station> getStationByCityAndStationType(String city, Station_type stationType) {
+        return stationRepo.filterByCityAndStationType(city, stationType);
+    }
 }
